@@ -1,0 +1,150 @@
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+html, input {
+  font-family:
+    "HelveticaNeue-Light",
+    "Helvetica Neue Light",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    "Lucida Grande",
+    sans-serif;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* OUTLINES */
+header, footer, .nav, .inline-items, .container, #image{
+  border: 1px solid pink;
+}
+.columnsContainer{
+  border: 3px solid orange;
+}
+.rightColumn{
+  border: 1px solid green;
+}
+.leftColumn{
+  border: 3px solid red;
+}
+/* END OUTLINES */
+
+
+/* HEADER/ FOOTER*/
+.columnsContainer,
+header {
+  overflow: hidden;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 0%;
+  width: 100%;
+  text-align: center;
+}
+/* END HEADER/ FOOTER */
+
+
+
+/* NAVIGATION */
+.nav {
+  list-style: none;
+  margin-left: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+.nav > li,
+.nav > li > a {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
+.inline-items {
+  margin-top: 0;
+}
+.inline-items li {
+  margin-left: 0;
+  border-left: 1px solid black;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.inline-items li:first-child {
+  margin-left: 0;
+  border: none;
+  padding-left: 0;
+  padding-right: 10px;
+}
+.inline-items li:last-child {
+  padding-right: 0;
+}
+/* END NAVIGATION */
+
+
+
+
+/* BODY */
+.columnsContainer {
+  width: 100%;
+  height: 100%;
+}
+/* RIGHT COLUMN CHAT */
+.rightColumn {
+  width: 100%
+  position: fixed;
+  margin-top: 4.5em;
+  height: 100%;
+}
+/* END RIGHT COLUMN CHAT */
+
+
+/* LEFT COLUMN DARKROOM */
+.leftColumn{
+  left: 0;
+  height: 87%;
+  position: absolute;
+  width: 70%;
+  border: 1px solid red;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  background: black;
+}
+.masked {
+  -webkit-mask-image: radial-gradient(circle 0, rgba(255,255,255,1) 10%,rgba(255,255,255,0) 100%);
+}
+#image {
+  max-height: 660px;
+  width: 100%;
+  left: 0;
+  border: 1px solid red;
+}
+/* END LEFT COLUMN DARKROOM */
+/* END BODY */
+
+
+
+
+/* MEDIA QUERIES */
+/*@media screen and (min-width: 50em) {
+  .leftColumn {
+    margin-right: 19.5em;
+    height: 87%;
+  }*/
+
+
+/*@media screen and (min-width: 50em) {
+}*/
+/* END MEDIA QUERIES */
