@@ -9,7 +9,7 @@
         var mouseX = e.pageX - $(this).offset().left;
         var mouseY = e.pageY - $(this).offset().top;
         $(this).css({
-          '-webkit-mask-image': 'radial-gradient(circle 60px at ' + mouseX + 'px ' + mouseY + 'px, rgba(255,255,255,1) 60%, rgba(255,255,255,0) 100%)',
+          '-webkit-mask-image': 'radial-gradient(circle 30px at ' + mouseX + 'px ' + mouseY + 'px, rgba(255,255,255,1) 60%, rgba(255,255,255,0) 100%)',
           'cursor': 'none'
         });
 
