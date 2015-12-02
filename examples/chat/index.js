@@ -62,6 +62,11 @@ io.on('connection', function (socket) {
     });
   });
 
+  socket.on('mouse move', function(data) {
+    // console.log(data);
+    socket.broadcast.emit('mouse move', data);
+  });
+
   // when the user disconnects.. perform this
   socket.on('disconnect', function () {
     // remove the username from global usernames list

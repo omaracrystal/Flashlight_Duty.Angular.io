@@ -23,7 +23,10 @@ $(function() {
   var lastTypingTime;
   var $currentInput = $usernameInput.focus();
 
-  var socket = io();
+  //create an array of user names
+  var usernames = [];
+
+  // var socket = io();
 
   function addParticipantsMessage (data) {
     var message = '';
@@ -263,4 +266,19 @@ $(function() {
   socket.on('stop typing', function (data) {
     removeChatTyping(data);
   });
+
+  // Whenever the server emits login
+  // socket.on('play page loaded' function(data) {
+  //   connected = true;
+  //   $window.on('load', function () {
+
+  //   })
+  // })
+
+
+
+
+
 });
+
+

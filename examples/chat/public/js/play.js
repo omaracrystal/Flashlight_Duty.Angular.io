@@ -5,7 +5,7 @@
   var score= 0;
 
 //represents the names to all the images
-  var images = [ "paris", "donaldtrump", "kittens", "llama", "niagrafalls", "octopus", "puppy", "waterfountain"
+  var images = [ "paris", "trump", "kittens", "llama", "waterfall", "octopus", "puppy", "fountain"
   ]
 
 //after the enter key is pressed the checkGuess() function runs
@@ -59,6 +59,7 @@
         console.log(images[i+1]);
         var newImage = $('#image').replaceWith(first+images[i+1]+last);
         console.log(newImage);
+        darkroom();
         return newImage;
       };
     };
