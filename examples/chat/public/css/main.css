@@ -8,6 +8,8 @@
 html {
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
+  color: #528EA3;
+  background: black;
 }
 html, input {
   font-family:
@@ -27,7 +29,7 @@ html, body {
 
 
 /* OUTLINES */
-header, footer, .nav, .inline-items, .container, #image{
+/*header, footer, .nav, .inline-items, .container, #image{
   border: 1px solid pink;
 }
 .columnsContainer{
@@ -38,13 +40,14 @@ header, footer, .nav, .inline-items, .container, #image{
 }
 .leftColumn{
   border: 3px solid red;
-}
+}*/
 /* END OUTLINES */
 
 
 /* HEADER/ FOOTER*/
 .columnsContainer,
 header {
+  color: #528EA3;
   overflow: hidden;
   text-align: center;
   height: 65px;
@@ -88,7 +91,6 @@ footer {
 }
 .inline-items li {
   margin-left: 0;
-  border-left: 1px solid black;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -127,7 +129,6 @@ footer {
   height: 87%;
   position: absolute;
   width: 70%;
-  border: 1px solid red;
 }
 .container {
   width: 100%;
@@ -150,7 +151,6 @@ footer {
 #image {
   width: 100%;
   left: 0;
-  border: 1px solid blue;
 }
 /* END LEFT COLUMN DARKROOM */
 /* END BODY */

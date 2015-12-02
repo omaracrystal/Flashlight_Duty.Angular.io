@@ -17,7 +17,7 @@ ul {
   height: 87%;
   position: absolute;
   width: 30%;
-  border: 1px solid red;
+  border: 5px solid #528EA3;
 }
 
 /* Login Page */
@@ -38,7 +38,7 @@ ul {
 .login.page .form .usernameInput {
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid #528EA3;
   outline: none;
   padding-bottom: 15px;
   text-align: center;
@@ -55,7 +55,7 @@ ul {
 }
 
 .login.page .title, .login.page .usernameInput {
-  color: #fff;
+  color: #528EA3;
   font-weight: 100;
 }
 
