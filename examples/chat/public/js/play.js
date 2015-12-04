@@ -40,7 +40,7 @@
   }
 
   function alertWinner() {
-    $('#winner').text('That is correct ' + winner + "!");
+    $('#winner').text('AWESOME ' + winner + "! The answer is " + image + " :)");
     $('#winner').show();
     setTimeout(function(){ $('#winner').hide(); }, 3000);
     $('.showImage').show();
