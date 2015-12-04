@@ -16,7 +16,8 @@ ul {
   right: 0;
   height: 87%;
   position: absolute;
-  width: 30%;
+  width: 28%;
+  right: 2%;
   border: 5px solid #528EA3;
 }
 

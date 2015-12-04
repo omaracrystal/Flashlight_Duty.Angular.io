@@ -27,23 +27,6 @@ html, body {
   padding: 0;
 }
 
-
-/* OUTLINES */
-/*header, footer, .nav, .inline-items, .container, #image{
-  border: 1px solid pink;
-}
-.columnsContainer{
-  border: 3px solid orange;
-}
-.rightColumn{
-  border: 1px solid green;
-}
-.leftColumn{
-  border: 3px solid red;
-}*/
-/* END OUTLINES */
-
-
 /* HEADER/ FOOTER*/
 .columnsContainer,
 header {
@@ -141,37 +124,66 @@ footer {
 .masked {
   -webkit-mask-image: radial-gradient(circle 0, rgba(255,255,255,1) 10%,rgba(255,255,255,0) 100%);
 }
-/*
-.imageDiv{
-  display: flex;
-  display: -webkit-flex; -Safari
-    -webkit-justify-content: space-around; -Safari 6.1+
-    display: flex;
-  justify-content: center;
-  align-items: center;
+
+.showImage {
   width: 100%;
-  height: 100%;
+  left: 0;
 }
-*/
 
 #image {
   width: 100%;
   left: 0;
 }
-/* END LEFT COLUMN DARKROOM */
-/* END BODY */
 
+#winner {
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 5%;
+  padding: .5em;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border-top: 1px solid #61baf2;
+  background: #338ccc;
+  color: black;
+  font-size: 2.5em;
+  font-weight: bolder;
+  text-align: center;
+  vertical-align: middle;
+  opacity: 1;
+  z-index: 10;
+}
 
+.label {
+    border-radius: .2em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
 
+    background: #434343;
+    text-align:center;
+    cursor:pointer;
+    vertical-align: middle;
+    line-height: 40px;
+    margin-top:100px;
 
-/* MEDIA QUERIES */
-/*@media screen and (min-width: 50em) {
-  .leftColumn {
-    margin-right: 19.5em;
-    height: 87%;
-  }*/
+    animation: myalert;
+    animation-duration:2000ms;
+    animation-iteration-count:infinite;
+}
 
-
-/*@media screen and (min-width: 50em) {
-}*/
-/* END MEDIA QUERIES */
+@keyframes myalert {
+  10% { background-color: #00FFFF; }
+  15% { transform: rotate(-5deg) }
+  16% { transform: rotate(5deg) }
+  17% { transform: rotate(-5deg) }
+  18% { transform: rotate(5deg) }
+  22% { transform: scale(1.1) }
+  40% {
+    transform: rotate(0deg);
+    transform: scale(1)
+  }
+  100% { transform: rotate(0deg) }
+}

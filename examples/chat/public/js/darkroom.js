@@ -16,14 +16,12 @@ function darkroom(){
           'cursor': 'none'
         });
         socket.emit('mouse move', {x: mouseX, y: mouseY});
-
-
       }
 
       function flashlight2(x, y) {
         var mouseX = x;
         var mouseY = y;
-        console.log(x, y);
+        // console.log(x, y);
         $('.masked').css({
           '-webkit-mask-image': 'radial-gradient(circle 40px at ' + mouseX + 'px ' + mouseY + 'px, rgba(255,255,255,1) 60%, rgba(255,255,255,0) 100%)',
           'cursor': 'none'
@@ -31,18 +29,15 @@ function darkroom(){
 
       }
 
-      // function updateImg() {
-      //   $('.masked').attr('src', 'http://www.placekitten.com/' + $(window).width() + '/' + $(window).height());
-      // }
       socket.on('mouse move', function(data) {
-        // console.log('poop');
         flashlight2(data.x, data.y);
       });
+
 
       $('.masked').on({
         'mousemove': flashlight,
         'mouseleave': flashlightOff
       });
-  };
+  }
 
   darkroom();

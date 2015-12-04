@@ -6,7 +6,7 @@
 
 //represents the names to all the images
   var images = [ "paris", "trump", "kittens", "llama", "waterfall", "octopus", "puppy", "fountain"
-  ]
+  ];
 
 //after the enter key is pressed the checkGuess() function runs
   $('.inputMessage').on("keypress", function(e) {
@@ -23,7 +23,7 @@
     guess = lastMessage.children('span').eq(1).text().toLowerCase(),
     srcArr = $('.masked').attr('src').split('/'),
     src = srcArr.reverse()[0],
-    image = src.substring(0, src.length - 4).toLowerCase()
+    image = src.substring(0, src.length - 4).toLowerCase();
 
     if (image === guess) {
       winner = username;
@@ -34,6 +34,10 @@
     } else {
       return "That is wrong " + username;
     }
+  }
+
+  function alertWinner(winner) {
+    $('#winner');
   };
 
   function updateScore() {
@@ -49,21 +53,30 @@
 
   //once score is updated for correct answer then a new image appears
   function switchImage() {
-    console.log(images);
     var first = "<img class='masked' id='image' src='/./images/darkroom/";
     var last = ".png' style='cursor:none'/>";
     var grabImage = $('#image');
-    console.log(grabImage);
+
     for (i=0; i<images.length; i++) {
       if (images[i] === image) {
-        console.log(images[i+1]);
         var newImage = $('#image').replaceWith(first+images[i+1]+last);
-        console.log(newImage);
         darkroom();
+        //emit new image to others
+        socket.emit('switch image');
         return newImage;
-      };
-    };
-  };
+      }
+    }
+  }
+
+
+  //once image is captured then call this function everywhere
+  // socket.on('switch image', function() {
+  //   console.log('mahahahaha');
+  //   switchImage();
+  // });
+
+
+
 
 })();
 
