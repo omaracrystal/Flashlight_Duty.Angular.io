@@ -49,6 +49,7 @@
 
   function updateScore() {
     score++;
+    $('.nav').children().eq(0).text("Score: "+score);
     console.log(score);
     // for (i=0; i<userArr.length; i++) {
     //   if (winner === userArr[i]) {
