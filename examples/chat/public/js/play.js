@@ -1,6 +1,9 @@
 //pull chat respones
 (function play(){
 
+  $('#winner').hide();
+  $('.showImage').hide();
+
   var winner, lastMessage, username, guess, srcArr, src, image;
   var score= 0;
 
@@ -27,7 +30,7 @@
 
     if (image === guess) {
       winner = username;
-      alert("That is correct " + winner + "!");
+      alertWinner();
       updateScore();
       switchImage();
       return "That is correct " + winner + "!";
@@ -36,9 +39,13 @@
     }
   }
 
-  function alertWinner(winner) {
-    $('#winner');
-  };
+  function alertWinner() {
+    $('#winner').text('That is correct ' + winner + "!");
+    $('#winner').show();
+    setTimeout(function(){ $('#winner').hide(); }, 3000);
+    $('.showImage').show();
+    setTimeout(function(){ $('.showImage').hide(); }, 6000);
+  }
 
   function updateScore() {
     score++;
@@ -56,10 +63,14 @@
     var first = "<img class='masked' id='image' src='/./images/darkroom/";
     var last = ".png' style='cursor:none'/>";
     var grabImage = $('#image');
+    var showImage = $('.showImage');
+    var first2 = "<img class='showImage' src='/./images/darkroom/";
+    var last2 = ".png'/>";
 
     for (i=0; i<images.length; i++) {
       if (images[i] === image) {
-        var newImage = $('#image').replaceWith(first+images[i+1]+last);
+        var newImage = grabImage.replaceWith(first+images[i+1]+last);
+        showImage.replaceWith(first2+images[i]+last2);
         darkroom();
         //emit new image to others
         socket.emit('switch image');
