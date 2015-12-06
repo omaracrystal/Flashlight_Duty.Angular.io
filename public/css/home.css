@@ -1,4 +1,12 @@
 /* Header */
+canvas {
+  position: fixed;
+  top: -80px;
+  left: 0;
+  width: 110%;
+  height: 110%;
+}
+
 #large-header {
   background: #000;
 }

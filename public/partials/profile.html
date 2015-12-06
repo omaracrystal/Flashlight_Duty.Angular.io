@@ -1,10 +1,22 @@
+<link rel="stylesheet" href="/../css/home.css">
 <link rel="stylesheet" href="/../css/profile.css">
 
-<div class="container">
-  <div class="content">
-    <canvas id="universe"></canvas>
-    <div id="footerContent"><a href="https://twitter.com/Everlier"></a></div>
-    <div id="footer">
+<div id="large-header" class="large-header">
+  <div class="profile">
+    <div class="avatar"></div>
+    <div class="flashlight" id="on">
+      <img src='../images/flash_light.png'>
     </div>
+    <div class="flashlight" id="off">
+      <img src='../images/flash_light_before.png'>
+    </div>
+    </div>
+  <div class="stats">
+    <header>Flashlight Duty Stats</header>
+    <p>Score: 3</p>
+    <p>Status: "You're pretty hot right now!"</p>
+    <d3></d3>
   </div>
+
+  <canvas id="demo-canvas"></canvas>
 </div>
