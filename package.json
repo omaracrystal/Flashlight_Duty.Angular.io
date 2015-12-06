@@ -13,10 +13,6 @@
     "io"
   ],
   "main": "./lib/index",
-  "repository": {
-    "type": "git",
-    "url": "github.com/omaracrystal/Capstone.Project.io"
-  },
   "scripts": {
     "test": "mocha --reporter dot --slow 200ms --bail"
   },
@@ -24,8 +20,6 @@
     "express": "3.4.8",
     "engine.io": "1.6.3",
     "socket.io-parser": "2.2.6",
-    "socket.io-client": "omaracrystal/socket.io-client#master",
-    "socket.io-adapter": "omaracrystal/socket.io-adapter#master",
     "has-binary": "0.1.7",
     "debug": "2.2.0"
   },
