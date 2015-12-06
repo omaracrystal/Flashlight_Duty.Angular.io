@@ -30,8 +30,6 @@ var socket = io();
   //create an array of user names
   var usernames = [];
 
-  // var socket = io();
-
   function addParticipantsMessage (data) {
     var message = '';
     if (data.numUsers === 1) {

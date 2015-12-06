@@ -9,6 +9,9 @@ function play(){
   var winner, lastMessage, username, guess, srcArr, src, image;
   var score= 0;
 
+  //once there is a winner update this to true and emit to sockets
+  var checkWinner = false;
+
 //represents the names to all the images
   var images = [ "paris", "trump", "kittens", "llama", "waterfall", "octopus", "puppy", "fountain"
   ];
@@ -32,51 +35,62 @@ function play(){
 
     if (image === guess) {
       winner = username;
-      alertWinner();
+      console.log(checkWinner);
+      checkWinner = true;
+      console.log(checkWinner);
+      alertWinner(winner);
       updateScore();
-      switchImage();
+      switchImage(image);
       return "That is correct " + winner + "!";
     } else {
       return "That is wrong " + username;
     }
+    //emit winner and image
+    socket.emit('winner and image', {winner: winner, image: image});
   }
 
-  function alertWinner() {
+
+  function alertWinner(winner) {
     $('#winner').text('AWESOME ' + winner + "! The answer is " + image + " :)");
     $('#winner').show();
-    setTimeout(function(){ $('#winner').hide(); }, 3000);
     $('.showImage').show();
+    setTimeout(function(){ $('#winner').hide(); }, 3000);
     setTimeout(function(){ $('.showImage').hide(); }, 6000);
+    setTimeout(function(){ $('#image').show(); }, 6500);
+    setTimeout(function(){checkWinner = false; }, 7000);
+    setTimeout(function(){console.log(checkWinner); }, 7000);
   }
+
+
+  //once the message 'winner and image' is called above create a socket
+  socket.on('winner and image', function(data) {
+    alertWinner(data.winner);
+    switchImage(data.image);
+  });
 
   function updateScore() {
     score++;
     $('.nav').children().eq(0).text("Score: "+score);
     console.log(score);
-    // for (i=0; i<userArr.length; i++) {
-    //   if (winner === userArr[i]) {
-    //     score++;
-    //     console.log(score);
-    //   }
-    // }
   }
 
   //once score is updated for correct answer then a new image appears
-  function switchImage() {
+  function switchImage(image) {
     var first = "<img class='masked' id='image' src='/./images/darkroom/";
     var last = ".png' style='cursor:none'/>";
     var grabImage = $('#image');
     var showImage = $('.showImage');
     var first2 = "<img class='showImage' src='/./images/darkroom/";
     var last2 = ".png'/>";
+    var newImage;
 
     for (i=0; i<images.length; i++) {
       if (images[i] === image) {
-        var newImage = grabImage.replaceWith(first+images[i+1]+last);
+        newImage = grabImage.replaceWith(first+images[i+1]+last);
         showImage.replaceWith(first2+images[i]+last2);
         darkroom();
+        $('#image').hide();
         //emit new image to others
-        socket.emit('switch image');
         return newImage;
       }
     }

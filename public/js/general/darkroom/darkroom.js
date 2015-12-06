@@ -28,7 +28,7 @@ function darkroom() {
       'cursor': 'none'
     });
 
-      }
+  }
 
   socket.on('mouse move', function(data) {
     flashlight2(data.x, data.y);

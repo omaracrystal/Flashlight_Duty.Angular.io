@@ -20,6 +20,7 @@ var numUsers = 0;
 
 io.on('connection', function (socket) {
   var addedUser = false;
+  var checkWinner = false;
 
   // when the client emits 'new message', this listens and executes
   socket.on('new message', function (data) {
@@ -62,15 +63,18 @@ io.on('connection', function (socket) {
     });
   });
 
+  // when client emits 'mouse move', we broadcast it to others
   socket.on('mouse move', function(data) {
     // console.log(data);
     socket.broadcast.emit('mouse move', data);
   });
 
-  // socket.on('switch image' function() {
-  //   socket.broadcast.emit('switch image', switchImage(););
-  // });
-
+  // when client emits 'winner and image' we broadcast it to others
+  socket.on('winner and image', function(data) {
+    checkWinner = true;
+    console.log(data);
+    socket.boadcast.emit('winner and image', data);
+  });
 
   // when the user disconnects.. perform this
   socket.on('disconnect', function () {
