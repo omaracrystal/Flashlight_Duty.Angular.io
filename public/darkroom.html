@@ -2,13 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Socket.IO Chat Example</title>
+  <title>Flashlight Duty</title>
   <link rel="stylesheet" href="/./css/chat.css">
   <link rel="stylesheet" href="/./css/main.css">
+  <link rel="stylesheet" href="/./css/home.css">
+  <link rel="stylesheet" href="/./css/switch.css">
+  <link rel="stylesheet" href="/./css/darkroom.css">
+  <link rel="stylesheet" href="/./css/profile.css">
 </head>
-<body>
 
-<!--HEADER AREA-->
+<body>
+<!--********************* Play Page **************************-->
+<div id="playPage">
+ <!--HEADER AREA-->
 <header>FLASHLIGHT DUTY</header>
  <nav>
   <ul class="nav inline-items">
@@ -63,16 +69,26 @@
   <p><a href="#">Contact Us</a> | <a href="#">Source Code</a> | <a href="#">Privacy Policy</a></p>
   <p>&copy;2015 Flashlight Duty</p>
 </footer>
+</div>
+<!--********************* End Play Page **************************-->
+
 
 
   <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
-  <script src="/./js/darkroom.js"></script>
+
   <script src="/./js/main.js"></script>
-  <script src="/./js/play.js"></script>
+  <script src="/./js/home/home_canvas_bg.js"></script>
+
+  <script src="/./js/darkroom/chat.js"></script>
+  <script src="/./js/darkroom/darkroom.js"></script>
+  <script src="/./js/darkroom/play.js"></script>
+
+  <script src="/./js/profile/profileBg.js"></script>
+
  <!--nio.js non-minified version-->
-  <script type="text/javascript" src="/js/nio.js"></script>
+  <script type="text/javascript" src="/./js/nio/nio.js"></script>
   <!--nio filtering-->
-  <script type="text/javascript" src="/js/nio2.js"></script>
+  <script type="text/javascript" src="/./js/nio/nio2.js"></script>
 </body>
 </html>

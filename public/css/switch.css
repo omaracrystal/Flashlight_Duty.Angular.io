@@ -1,0 +1,18 @@
+.icon-off {
+  position: fixed;
+  left: .2em;
+  right: 0;
+  bottom: .7em;
+  background-repeat: no-repeat;
+  background-size: 70% auto;
+  background-position: center bottom;
+  overflow: hidden;
+  opacity: 1;
+  font-size: 180%;
+  z-index: 20;
+  cursor: pointer;
+}
+
+.icon-off:hover {
+  color: blue;
+}
