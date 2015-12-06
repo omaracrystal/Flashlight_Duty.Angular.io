@@ -14,6 +14,12 @@ app.config(function($routeProvider) {
         controller: 'darkroomController',
         access: {restricted: false}
       })
+  //profile page
+      .when('/profile', {
+        templateUrl: '../partials/profile.html',
+        controller: 'profileController',
+        access: {restricted: false}
+      })
       .otherwise({
         redirectTo: '/',
         access: {restricted: false}
