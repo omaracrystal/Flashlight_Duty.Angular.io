@@ -16,9 +16,10 @@ ul {
   right: 0;
   height: 87%;
   position: absolute;
+  margin-top: 2em;
   width: 28%;
   right: 2%;
-  border: 5px solid #528EA3;
+  border: 3px solid #528EA3;
 }
 
 /* Login Page */

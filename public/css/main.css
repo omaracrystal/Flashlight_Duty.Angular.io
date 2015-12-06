@@ -31,3 +31,13 @@ html, body {
   margin: 0;
   padding: 0;
 }
+a {
+  text-decoration: none;
+  color: #528EA3;
+  font-style: lighter;
+  font-size: 120%;
+}
+.border {
+  border: 1px solid #528EA3;
+  padding: .5em;
+}
