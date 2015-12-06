@@ -1,7 +1,5 @@
 //pull chat respones
-function play(){
-
-  $('#playPage').show();
+(function play(){
 
   $('#winner').hide();
   $('.showImage').hide();
@@ -90,6 +88,13 @@ function play(){
   // });
 
 
-};
+
+
+})();
+
+
+
+
+
 
 
