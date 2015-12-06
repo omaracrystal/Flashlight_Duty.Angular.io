@@ -1,0 +1,60 @@
+<!-- ********************* Play Page ************************** -->
+<div id="playPage">
+ <!-- HEADER AREA -->
+<header>FLASHLIGHT DUTY</header>
+ <nav>
+  <ul class="nav inline-items">
+    <li>Score</li>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Profile</a></li>
+ </ul>
+</nav>
+
+<!-- LEFT COLUMN DARKROOM -->
+<div class="bodyWrapper">
+  <div class="leftColumn">
+    <div class="container">
+      <span><h3>CURRENT PERSON ON FLASHLIGHT DUTY:</h3></span>
+      <span id="onDuty">{{ USERNAME }}</span>
+      <p><a href="#"><h3>Switch off Duty</h3></a><p>
+
+     <div class="label" id="winner"></div>
+
+      <div class="imageDiv">
+        <img class = "showImage" src="/./images/darkroom/paris.png">
+
+        <img class="masked" id="image" src="/./images/darkroom/paris.png"/>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT BAR CHAT -->
+  <div class="rightColumnChat">
+    <ul class="pages">
+       <!-- LOGIN PAGE -->
+        <li class="login page">
+          <div class="form">
+            <h3 class="title">What's your nickname?</h3>
+            <input class="usernameInput" type="text" maxlength="14" />
+          </div>
+        </li>
+      <!-- END LOGIN PAGE -->
+      <li class="chat page">
+        <div class="chatArea">
+          <ul class="messages"></ul>
+        </div>
+        <input class="inputMessage" placeholder="type your guess here..."/>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p><a href="#">Contact Us</a> | <a href="#">Source Code</a> | <a href="#">Privacy Policy</a></p>
+  <p>&copy;2015 Flashlight Duty</p>
+</footer>
+
+</div>
+<!-- ********************* End Play Page ************************** -->

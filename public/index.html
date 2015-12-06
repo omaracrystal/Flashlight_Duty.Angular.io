@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 <head>
   <meta charset="UTF-8">
   <title>Flashlight Duty</title>
@@ -14,116 +14,61 @@
 
 <body>
 
-<!-- ************* INTRODUCTION PAGE/ LANDING PAGE ************* -->
-<!-- <div id="landingPage">
-  <div id="large-header" class="large-header">
-    <canvas id="demo-canvas"></canvas>
-  </div>
+<div id="mainBody" ng-view>
+  <!-- WELCOME PAGE -->
+    <div><home></home></div>
 
-  <div class="envelope sth">
-    <div class="universe">
-      <div class="in"></div>
-    </div>
-    <div class="flashlight">
-      <div class="more-shine"></div>
-    </div>
-    <div class="logo">
-      <div class="layer p1"></div>
-      <div class="layer p2"></div>
-      <div class="layer p3"></div>
-      <div class="sob">
-        <span>Introducing</span>
-      </div>
-      <div class="name">
-        <span>Flashlight Duty</span>
-      </div>
-      <div class="sub">
-        <span>Are you ready brah?</span>
-      </div>
-      <a href="./darkroom" class="play" id="ct" data-cont="Saiba mais">Play</a>
-      <i class="icon-off"></i>
-    </div>
-  </div>
-</div> -->
-<!-- ************* END INTRODUCTION PAGE/ LANDING PAGE ************* -->
-
-
-<!-- ********************* Play Page ************************** -->
-<div id="playPage">
- <!-- HEADER AREA -->
-<header>FLASHLIGHT DUTY</header>
- <nav>
-  <ul class="nav inline-items">
-    <li>Score</li>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Profile</a></li>
- </ul>
-</nav>
-
-<!-- LEFT COLUMN DARKROOM -->
-<div class="bodyWrapper">
-  <div class="leftColumn">
-    <div class="container">
-      <span><h3>CURRENT PERSON ON FLASHLIGHT DUTY:</h3></span>
-      <span id="onDuty">{{ USERNAME }}</span>
-      <p><a href="#"><h3>Switch off Duty</h3></a><p>
-
-     <div class="label" id="winner"></div>
-
-      <div class="imageDiv">
-        <img class = "showImage" src="/./images/darkroom/paris.png">
-
-        <img class="masked" id="image" src="/./images/darkroom/paris.png"/>
-      </div>
+  <!-- DARKROOM -->
+    <div>
+      <darkroom></darkroom>
     </div>
 
-  </div>
-
-  <!-- RIGHT BAR CHAT -->
-  <div class="rightColumnChat">
-    <ul class="pages">
-       <!-- LOGIN PAGE -->
-        <li class="login page">
-          <div class="form">
-            <h3 class="title">What's your nickname?</h3>
-            <input class="usernameInput" type="text" maxlength="14" />
-          </div>
-        </li>
-      <!-- END LOGIN PAGE -->
-      <li class="chat page">
-        <div class="chatArea">
-          <ul class="messages"></ul>
-        </div>
-        <input class="inputMessage" placeholder="type your guess here..."/>
-      </li>
-    </ul>
-  </div>
+  <!--PROFILE PAGE-->
+    <div>
+      <profile></profile>
+    </div>
 </div>
 
-<!-- FOOTER -->
-<footer>
-  <p><a href="#">Contact Us</a> | <a href="#">Source Code</a> | <a href="#">Privacy Policy</a></p>
-  <p>&copy;2015 Flashlight Duty</p>
-</footer>
-</div>
-<!-- ********************* End Play Page ************************** -->
+<!--Angular-->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-route.min.js"></script>
 
-
-
-  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<!--Socket.io-->
   <script src="/socket.io/socket.io.js"></script>
 
-  <script src="/./js/main.js"></script>
-  <script src="/./js/home/home_canvas_bg.js"></script>
-  <script src="/./js/darkroom/chat.js"></script>
-  <script src="/./js/darkroom/darkroom.js"></script>
-  <script src="/./js/darkroom/play.js"></script>
+<!--MAIN-->
+ <script src="/js/app.js"></script>
+ <script src="/js/services.js"></script>
 
-  <script src="/./js/profile/profileBg.js"></script>
+<!-- GENERAL JAVASCRIPT FILES -->
+  <!-- HOME -->
+  <script src="/js/general/home/home_canvas_bg.js"></script>
+  <!-- DARKROOM -->
+  <script src="/js/general/darkroom/darkroom.js"></script>
+  <script src="/js/general/darkroom/chat.js"></script>
+  <script src="/js/general/darkroom/play.js"></script>
+  <!-- N.io -->
+  <script src="/js/general/darkroom/nio/nio.js"></script>
+  <script src="/js/general/darkroom/nio/nio2.js"></script>
+<!-- END GENERAL JAVASCRIPT FILES -->
 
- <!-- nio.js non-minified version -->
-  <script type="text/javascript" src="/./js/nio/nio.js"></script>
-  <!-- nio filtering -->
-  <script type="text/javascript" src="/./js/nio/nio2.js"></script>
+
+<!-- CONTROLLERS -->
+  <script src="/js/controllers/darkroomControllers.js"></script>
+  <script src="/js/controllers/homeControllers.js"></script>
+
+<!-- DIRECTIVES -->
+  <script src="/js/directives/darkroomDirectives.js"></script>
+  <script src="/js/directives/homeDirectives.js"></script>
+
+<!-- jQuery -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script src="//documentcloud.github.io/underscore/underscore-min.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script> -->
+
+
+<!--canvas background inspired by -->
+  <script type="text/javascript" src="http://www.marcoguglielmelli.it/Codepen/AnimatedHeaderBg/demo-1/js/TweenLite.min.js"></script>
+
 </body>
 </html>
