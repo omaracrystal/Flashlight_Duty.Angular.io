@@ -9,9 +9,6 @@ function play(){
   var winner, lastMessage, username, guess, srcArr, src, image;
   var score= 0;
 
-  //once there is a winner update this to true and emit to sockets
-  var checkWinner = false;
-
 //represents the names to all the images
   var images = [ "paris", "trump", "kittens", "llama", "waterfall", "octopus", "puppy", "fountain"
   ];
@@ -35,9 +32,14 @@ function play(){
 
     if (image === guess) {
       winner = username;
-      console.log(checkWinner);
-      checkWinner = true;
-      console.log(checkWinner);
+
+///////////// ************ HELP! ************ /////////////
+      //emit winner and image
+      // socket.emit('winner known', winner);
+      // socket.emit('image known', image);
+      // socket.emit('check winner');
+///////////// ************ HELP! ************ /////////////
+
       alertWinner(winner);
       updateScore();
       switchImage(image);
@@ -45,10 +47,7 @@ function play(){
     } else {
       return "That is wrong " + username;
     }
-    //emit winner and image
-    socket.emit('winner and image', {winner: winner, image: image});
   }
-
 
   function alertWinner(winner) {
     $('#winner').text('AWESOME ' + winner + "! The answer is " + image + " :)");
@@ -57,16 +56,8 @@ function play(){
     setTimeout(function(){ $('#winner').hide(); }, 3000);
     setTimeout(function(){ $('.showImage').hide(); }, 6000);
     setTimeout(function(){ $('#image').show(); }, 6500);
-    setTimeout(function(){checkWinner = false; }, 7000);
-    setTimeout(function(){console.log(checkWinner); }, 7000);
   }
 
-
-  //once the message 'winner and image' is called above create a socket
-  socket.on('winner and image', function(data) {
-    alertWinner(data.winner);
-    switchImage(data.image);
-  });
 
   function updateScore() {
     score++;

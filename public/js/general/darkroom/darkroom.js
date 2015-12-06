@@ -16,6 +16,7 @@ function darkroom() {
       '-webkit-mask-image': 'radial-gradient(circle 40px at ' + mouseX + 'px ' + mouseY + 'px, rgba(255,255,255,1) 60%, rgba(255,255,255,0) 100%)',
       'cursor': 'none'
     });
+    //emit the x and y values of this client
     socket.emit('mouse move', {x: mouseX, y: mouseY});
   }
 
@@ -30,6 +31,7 @@ function darkroom() {
 
   }
 
+  //listening to pass x and y cordinates to function
   socket.on('mouse move', function(data) {
     flashlight2(data.x, data.y);
   });

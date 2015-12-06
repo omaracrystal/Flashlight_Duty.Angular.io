@@ -17,10 +17,12 @@ app.use(express.static(__dirname + '/public'));
 // usernames which are currently connected to the chat
 var usernames = {};
 var numUsers = 0;
+var winners = {};
 
 io.on('connection', function (socket) {
   var addedUser = false;
   var checkWinner = false;
+  var switchImage = false;
 
   // when the client emits 'new message', this listens and executes
   socket.on('new message', function (data) {
@@ -69,12 +71,22 @@ io.on('connection', function (socket) {
     socket.broadcast.emit('mouse move', data);
   });
 
-  // when client emits 'winner and image' we broadcast it to others
-  socket.on('winner and image', function(data) {
-    checkWinner = true;
-    console.log(data);
-    socket.boadcast.emit('winner and image', data);
-  });
+///////////// ************ HELP! ************ /////////////
+  // //when client emits 'winner known' we broadcast it to others
+  // socket.on('winner known', function(winner) {
+  //   socket.winner = winner;
+  // });
+
+  // //when client emits 'image known' we broadcast it to others
+  // socket.on('image known', function(image) {
+  //   socket.image = image;
+  // });
+
+  // //when client emits 'image known' we broadcast it to others
+  // socket.on('check winner', function() {
+  //   socket.checkWinner = true;
+  // });
+///////////// ************ HELP! ************ /////////////
 
   // when the user disconnects.. perform this
   socket.on('disconnect', function () {
