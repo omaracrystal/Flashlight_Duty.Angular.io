@@ -1,6 +1,8 @@
 //pull chat respones
 function play(){
 
+  var socket = io();
+
   $('#winner').hide();
   $('.showImage').hide();
 
