@@ -2,6 +2,13 @@ function darkroom() {
 
   var socket = io();
 
+  $('#nioPopUp').hide();
+
+  $('#nio').on('click', function() {
+    $('#nioPopUp').show();
+  });
+
+
   function flashlightOff() {
     $(this).css({
         '-webkit-mask-image': ''

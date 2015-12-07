@@ -1,22 +1,42 @@
 <link rel="stylesheet" href="/../css/home.css">
 <link rel="stylesheet" href="/../css/profile.css">
+<link rel="stylesheet" href="/../css/darkroom.css">
+
+<header>FLASHLIGHT DUTY</header>
 
 <div id="large-header" class="large-header">
-  <div class="profile">
-    <div class="avatar"></div>
-    <div class="flashlight" id="on">
-      <img src='../images/flash_light.png'>
+
+  <div class="profile-wrapper">
+
+    <div class="div-one">
+       <nav class="profileNav">
+        <ul class="nav inline-items">
+          <li><a class='border' href="#/darkroom">Darkroom</a></li>
+          <li><a class='border' href="#/">Home</a></li>
+       </ul>
+      </nav>
+      <div class="stats">
+        <span id="statHeader">Crystal's Statistics</span>
+          <p class="profileP">Score: 3</p>
+          <p class= "profileP">Status: "You're lighting it up!"</p>
+          <d3></d3>
+      </div>
     </div>
-    <div class="flashlight" id="off">
-      <img src='../images/flash_light_before.png'>
+
+    <div class="div-two">
+      <div class="profile">
+        <div class="avatar"></div>
+        <div class="flashlight" id="on">
+          <img src='../images/flash_light.png'>
+        </div>
+        <div class="flashlight" id="off">
+          <img src='../images/flash_light_before.png'>
+        </div>
+      </div>
     </div>
-    </div>
-  <div class="stats">
-    <header>Flashlight Duty Stats</header>
-    <p>Score: 3</p>
-    <p>Status: "You're lighting it up!"</p>
-    <d3></d3>
+
   </div>
 
-  <canvas id="demo-canvas"></canvas>
+    <canvas id="demo-canvas"></canvas>
+
 </div>

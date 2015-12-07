@@ -1,24 +1,78 @@
-#large-header {
-  display: flex;
-  width: 100%;
-  height: 100%;
-/*  justify-content: center;
-  align-items: center;*/
+@media (max-width: 1400px) {
+    .star {
+        display: none;
+    }
 }
-header {
+@media (max-width: 1026px) {
+    .stats {
+        position: fixed;
+        top: 20em;
+    }
+}
+.profileHeader {
   font-size: 300%;
   padding-top: .5em;
   z-index: 1000;
 }
-p {
+.profileP {
   font-size: 200%;
-  padding-top: .3em;
+  padding-top: .5em;
   z-index: 1000;
 }
-d3 {
-
+#large-header {
+  top: 5em;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
-
+.profileNav {
+  position: fixed;
+  top: 3.5em;
+  right: 1em;
+}
+.profile-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify content: center;
+}
+.stats {
+  position: fixed;
+  top: 3.5em;
+  right: 3em;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  position: absolute;
+  width: 30em;
+  height: 40em;
+  border: .15em solid #528EA3;
+  z-index: 10;
+}
+#statHeader {
+  margin-top: .5em;
+  font-size: 3em;
+}
+.avatar{
+  position: relative;
+  top: 6em;
+  left: 5.2em;
+  width: 20em;
+  height: 20em;
+  background-image: url('../images/avatar.png');
+  background-size: 20em 20em;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  /*border: .15em solid #528EA3;*/
+  border-top: .15em solid #0A9DFF;
+  border-left: .15em solid #FFF82E;
+  border-right: .15em solid #FF9E3D;
+  border-bottom: .15em solid #FF3B14;
+  z-index: 1000;
+  opacity: 1;
+}
 .flashlight {
   width: 100%;
   height: 100%;
@@ -29,44 +83,8 @@ d3 {
 #on {
   opacity: .8;
 }
-
 #off {
   z-index: 1000;
 }
 
-.stats {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-/*  justify-content: center;*/
-  align-items: center;
-  position: absolute;
-  top: 5em;
-  left: 30em;
-  width: 30em;
-  height: 40em;
-  border: .15em solid #528EA3;
-  z-index: 10;
-}
 
-.avatar{
-  position: fixed;
-  top: 6em;
-  left: 5.2em;
-  width: 20em;
-  height: 20em;
-  background-image: url('../images/avatar.png');
-  background-size: 20em 20em;
-  background-repeat: no-repeat;
-  border-radius: 50%;
-
-  border: .15em solid #528EA3;
-
-/*  border-top: .15em solid #0A9DFF;
-  border-left: .15em solid #FFF82E;
-  border-right: .15em solid #FF9E3D;
-  border-bottom: .15em solid #FF3B14;*/
-
-  z-index: 1000;
-  opacity: 1;
-}
