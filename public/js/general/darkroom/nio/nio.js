@@ -13206,7 +13206,7 @@ exports.defaults = function (opts) {
 
 //////////////////////// ******** I added ******** ////////////////////////
   function nioFlashlightOff() {
-    $(this).css({
+    $('.masked').css({
         '-webkit-mask-image': ''
       });
   }
@@ -13216,36 +13216,62 @@ exports.log = function (prefix) {
     if (prefix) {
       console.log(prefix, chunk);
     } else {
-      nioXY = {x: chunk.Xaccel, y: chunk.Yaccel}
-      console.log(nioXY);
+      nioXY = {nioX: chunk.Xaccel*100 +300, nioY: chunk.Yaccel*100 +300}
+      // console.log(nioXY);
+    nioFlashlight(this);
     }
   });
 }
 
+// top left = (1, 194) of image...
+// { middle width of image: (page.width - page.width * 0.28) / 2,
+// middle height of image: page.height - 145px / 2 }
+// *(page.height- (header)65px - (nav)40px - (image header approx) 40px)*
+// $( ".masked" ).mousemove(function( event ) {
+//   var pageCoords = { pageX: event.pageX, pageY: event.pageY };
+//   var clientCoords = { clientX: event.clientX, clientY: event.clientY };
+//   // var offsetCoords = { offsetX: event.}
+//   console.log(pageCoords);
+//   console.log(clientCoords);
+// });
+
 //update according to other's x and y
-  function nioFlashlight(e) {
-    var nioMouseX = nioXY.x;
-    var nioMouseY = nioXY.y;
+  function nioFlashlight() {
+    var nioMouseX = nioXY.nioX - $('.masked').offset().left;
+    console.log(nioXY.nioX);
+    var nioMouseY = nioXY.nioY - $('.masked').offset().top;
     $('.masked').css({
       '-webkit-mask-image': 'radial-gradient(circle 40px at ' + nioMouseX + 'px ' + nioMouseY + 'px, rgba(255,255,255,1) 60%, rgba(255,255,255,0) 100%)',
       'cursor': 'none'
     });
     //emit the x and y values of this client
-    socket.emit('nio Mouse move', {x: nioMouseX, y: nioMouseY});
+    // socket.emit('nio Mouse move', {x: nioMouseX, y: nioMouseY});
   }
 
-  function nioFlashlight2(x, y) {
-    var nioMouseX = x;
-    var nioMouseY = y;
-    // console.log(x, y);
+  function flashlight(e) {
+    var mouseX = e.pageX - $('.masked').offset().left;
+    var mouseY = e.pageY - $('.masked').offset().top;
     $('.masked').css({
-      '-webkit-mask-image': 'radial-gradient(circle 40px at ' + nioMouseX + 'px ' + nioMouseY + 'px, rgba(255,255,255,1) 60%, rgba(255,255,255,0) 100%)',
+      '-webkit-mask-image': 'radial-gradient(circle 40px at ' + mouseX + 'px ' + mouseY + 'px, rgba(255,255,255,1) 60%, rgba(255,255,255,0) 100%)',
       'cursor': 'none'
     });
-
+    //emit the x and y values of this client
+    socket.emit('mouse move', {x: mouseX, y: mouseY});
   }
 
-  //listening to pass x and y cordinates to function
+
+
+  // function nioFlashlight2(x, y) {
+  //   var nioMouseX = x;
+  //   var nioMouseY = y;
+  //   // console.log(x, y);
+  //   $('.masked').css({
+  //     '-webkit-mask-image': 'radial-gradient(circle 40px at ' + nioMouseX + 'px ' + nioMouseY + 'px, rgba(255,255,255,1) 60%, rgba(255,255,255,0) 100%)',
+  //     'cursor': 'none'
+  //   });
+  // }
+
+  // listening to pass x and y cordinates to function
   // socket.on('nio mouse move', function(data) {
   //   nioFlashlight2(data.x, data.y);
   // });
