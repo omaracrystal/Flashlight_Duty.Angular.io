@@ -1,5 +1,7 @@
 function nio() {
 
+  var nioXY;
+
   (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
@@ -13190,15 +13192,71 @@ exports.defaults = function (opts) {
  * @param {string=} prefix Prefix log output.
  * @return stream
  */
+
+// PRINTS ALL OF THE OBJECT
+// exports.log = function (prefix) {
+// 	return exports.pass(function (chunk) {
+// 		if (prefix) {
+// 			console.log(prefix, chunk);
+// 		} else {
+// 			console.log(chunk);
+// 		}
+// 	});
+// };
+
+//////////////////////// ******** I added ******** ////////////////////////
+  function nioFlashlightOff() {
+    $(this).css({
+        '-webkit-mask-image': ''
+      });
+  }
+// PRINTS ONLY X AND Y CORDINATES
 exports.log = function (prefix) {
-	return exports.pass(function (chunk) {
-		if (prefix) {
-			console.log(prefix, chunk);
-		} else {
-			console.log(chunk);
-		}
-	});
-};
+  return exports.pass(function (chunk) {
+    if (prefix) {
+      console.log(prefix, chunk);
+    } else {
+      nioXY = {x: chunk.Xaccel, y: chunk.Yaccel}
+      console.log(nioXY);
+    }
+  });
+}
+
+//update according to other's x and y
+  function nioFlashlight(e) {
+    var nioMouseX = nioXY.x;
+    var nioMouseY = nioXY.y;
+    $('.masked').css({
+      '-webkit-mask-image': 'radial-gradient(circle 40px at ' + nioMouseX + 'px ' + nioMouseY + 'px, rgba(255,255,255,1) 60%, rgba(255,255,255,0) 100%)',
+      'cursor': 'none'
+    });
+    //emit the x and y values of this client
+    socket.emit('nio Mouse move', {x: nioMouseX, y: nioMouseY});
+  }
+
+  function nioFlashlight2(x, y) {
+    var nioMouseX = x;
+    var nioMouseY = y;
+    // console.log(x, y);
+    $('.masked').css({
+      '-webkit-mask-image': 'radial-gradient(circle 40px at ' + nioMouseX + 'px ' + nioMouseY + 'px, rgba(255,255,255,1) 60%, rgba(255,255,255,0) 100%)',
+      'cursor': 'none'
+    });
+
+  }
+
+  //listening to pass x and y cordinates to function
+  // socket.on('nio mouse move', function(data) {
+  //   nioFlashlight2(data.x, data.y);
+  // });
+
+
+  $('.masked').on({
+    'nioMousemove': nioFlashlight,
+    'nioMouseleave': nioFlashlightOff
+  });
+//////////////////////// ******** I added ******** ////////////////////////
+
 
 },{"./deps":4,"./stream":9}],11:[function(require,module,exports){
 var deps = require('./deps');
