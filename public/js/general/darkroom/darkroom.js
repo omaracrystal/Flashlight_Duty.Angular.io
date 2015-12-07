@@ -24,7 +24,7 @@ function darkroom() {
   })
 
   nioHuh.on('click', function() {
-    nioCon.replaceWith("<h1>Connect to n.io?</h1><h3>N.io allows you to connect your mobile device as a controller to this game.<br> Instead of using the mousepad to move your flashlight up, down, left or right over the image, you can use your phone physical movemtent to do that same!</h3>");
+    nioCon.replaceWith("<h1>Connect to n.io?</h1><h3>N.io allows you to connect your mobile device as a controller to this game.<br> Instead of using the mousepad to move your flashlight up, down, left or right over the image, you can use your phone's movement to do that same!</h3>");
     $('.btn').css('margin-top', '10px');
     nioPopUp.css('height', '380px');
   })
