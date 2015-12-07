@@ -7,6 +7,8 @@
 - Once correct answer is made, emit changed image across browsers... also alert winner in Chatroom for others to see.
 - update individual scores
 
+#3 Deploy to Heroku
+
 #3 All see same hover areas of image
 - mouseover x and y cordinates are off when viewing... error with different computers on same portal
 
