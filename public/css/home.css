@@ -183,7 +183,6 @@ canvas {
   transition: all 1s;
 }
 
-
 @-moz-keyframes ma {
   0% {
     opacity: 0;
@@ -380,12 +379,12 @@ canvas {
   }
 }
 .envelope .flashlight .more-shine {
-  -webkit-animation: shinemore 5s cubic-bezier(1, 0.51, 0.69, 0.81) forwards;
-  -moz-animation: shinemore 5s cubic-bezier(1, 0.51, 0.69, 0.81) forwards;
-  animation: shinemore 5s cubic-bezier(1, 0.51, 0.69, 0.81) forwards;
-  -ms-animation: shinemore 5s cubic-bezier(1, 0.51, 0.69, 0.81) forwards;
-  -webkit-animation-delay: 5s;
-  animation-delay: 5s;
+  -webkit-animation: shinemore 3s cubic-bezier(1, 0.51, 0.69, 0.81) forwards;
+  -moz-animation: shinemore 3s cubic-bezier(1, 0.51, 0.69, 0.81) forwards;
+  animation: shinemore 3s cubic-bezier(1, 0.51, 0.69, 0.81) forwards;
+  -ms-animation: shinemore 3s cubic-bezier(1, 0.51, 0.69, 0.81) forwards;
+  -webkit-animation-delay: 3s;
+  animation-delay: 3s;
 }
 @-moz-keyframes shinemore {
   0% {
@@ -400,7 +399,7 @@ canvas {
     opacity: 0;
   }
   100% {
-    opacity: .8;
+    opacity: .5;
   }
 }
 @keyframes shinemore {
@@ -408,7 +407,7 @@ canvas {
     opacity: 0;
   }
   100% {
-    opacity: .8;
+    opacity: .5;
   }
 }
 .envelope .flashlight:after {

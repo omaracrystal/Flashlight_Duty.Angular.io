@@ -2,12 +2,32 @@ function darkroom() {
 
   var socket = io();
 
-  $('#nioPopUp').hide();
+  var nioPopUp = $('#nioPopUp');
+  var nioImg = $('#nioImg');
+  var nioNah = $('#nioNah');
+  var nioYes = $('#nioYes');
+  var nioHuh = $('#nioHuh');
+  var nioCon = $('#nioContent');
 
-  $('#nio').on('click', function() {
-    $('#nioPopUp').show();
+  nioPopUp.hide();
+
+  nioImg.on('click', function() {
+    nioPopUp.show();
   });
 
+  nioNah.on('click', function() {
+    nioPopUp.hide();
+  })
+
+  nioYes.on('click', function() {
+    nioPopUp.hide();
+  })
+
+  nioHuh.on('click', function() {
+    nioCon.replaceWith("<h1>Connect to n.io?</h1><h3>N.io allows you to connect your mobile device as a controller to this game.<br> Instead of using the mousepad to move your flashlight up, down, left or right over the image, you can use your phone physical movemtent to do that same!</h3>");
+    $('.btn').css('margin-top', '10px');
+    nioPopUp.css('height', '380px');
+  })
 
   function flashlightOff() {
     $(this).css({
