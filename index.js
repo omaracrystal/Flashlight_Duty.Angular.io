@@ -2,7 +2,7 @@
 var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
-var io = require('./lib/index')(server);
+var io = require('socket.io')(server);
 var port = process.env.PORT || 3000;
 var favicon = require('serve-favicon');
 
@@ -23,23 +23,26 @@ app.use(express.favicon(__dirname + '/public/images/favicon.ico'));
 var usernames = {};
 var numUsers = 0;
 
-io.on('connection', function (client) {
+io.on('connection', function (socket) {
   var addedUser = false;
 
+  // when the client emits 'winner known', this listens and executes
   socket.on('winner known', function (data) {
-    socket.broadcast.emit(data);
-  };
+    console.log(data);
+    socket.broadcast.emit('winner known', data);
+  });
 
-  //  socket.on('new image', function (data) {
-  //   socket.broadcast.emit('new image', data);
-  //   console.log(data);
-  // });
+// when the client emits 'switch image', this listens and executes
+  socket.on('switch image', function (data) {
+    console.log(data);
+    socket.broadcast.emit('switch image', data);
+  });
 
   // when the client emits 'new message', this listens and executes
   socket.on('new message', function (data) {
     // we tell the client to execute 'new message'
     socket.broadcast.emit('new message', {
-      username: client.username,
+      username: socket.username,
       message: data
     });
   });
@@ -47,7 +50,7 @@ io.on('connection', function (client) {
   // when the client emits 'add user', this listens and executes
   socket.on('add user', function (username) {
     // we store the username in the socket session for this client
-    client.username = username;
+    socket.username = username;
     // add the client's username to the global list
     usernames[username] = username;
     ++numUsers;
@@ -57,7 +60,7 @@ io.on('connection', function (client) {
     });
     // echo globally (all clients) that a person has connected
     socket.broadcast.emit('user joined', {
-      username: client.username,
+      username: socket.username,
       numUsers: numUsers
     });
   });
@@ -65,14 +68,14 @@ io.on('connection', function (client) {
   // when the client emits 'typing', we broadcast it to others
   socket.on('typing', function () {
     socket.broadcast.emit('typing', {
-      username: client.username
+      username: socket.username
     });
   });
 
   // when the client emits 'stop typing', we broadcast it to others
   socket.on('stop typing', function () {
     socket.broadcast.emit('stop typing', {
-      username: client.username
+      username: socket.username
     });
   });
 
@@ -88,35 +91,19 @@ io.on('connection', function (client) {
     socket.broadcast.emit('nio mouse move', data);
   });
 
-///////////// ************ HELP! ************ /////////////
-  // //when client emits 'winner known' we broadcast it to others
-  // socket.on('winner known', function(winner) {
-  //   socket.winner = winner;
-  // });
-
-  // //when client emits 'image known' we broadcast it to others
-  // socket.on('image known', function(image) {
-  //   socket.image = image;
-  // });
-
-  // //when client emits 'image known' we broadcast it to others
-  // socket.on('check winner', function() {
-  //   socket.checkWinner = true;
-  // });
-///////////// ************ HELP! ************ /////////////
-
   // when the user disconnects.. perform this
   socket.on('disconnect', function () {
     // remove the username from global usernames list
     if (addedUser) {
-      delete usernames[client.username];
+      delete usernames[socket.username];
       --numUsers;
 
       // echo globally that this client has left
       socket.broadcast.emit('user left', {
-        username: client.username,
+        username: socket.username,
         numUsers: numUsers
       });
     }
   });
+
 });

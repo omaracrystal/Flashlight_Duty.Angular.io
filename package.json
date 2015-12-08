@@ -12,17 +12,18 @@
     "socket",
     "io"
   ],
-  "main": "./lib/index",
+  "main": "index",
   "scripts": {
     "test": "mocha --reporter dot --slow 200ms --bail"
   },
   "dependencies": {
-    "express": "3.4.8",
-    "engine.io": "1.6.3",
-    "socket.io-parser": "2.2.6",
-    "has-binary": "0.1.7",
     "debug": "2.2.0",
-    "serve-favicon": "~2.3.0"
+    "engine.io": "1.6.3",
+    "express": "3.4.8",
+    "has-binary": "0.1.7",
+    "serve-favicon": "~2.3.0",
+    "socket.io": "^1.3.7",
+    "socket.io-parser": "2.2.6"
   },
   "devDependencies": {
     "expect.js": "0.3.1",

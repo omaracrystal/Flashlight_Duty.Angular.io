@@ -35,11 +35,10 @@ function play(){
       winner = username;
 ///////////// ************ HELP! ************ /////////////
       //emit winner and image
-      socket.emit('winner known', winner);
-      // socket.emit('check winner');
+      socket.emit('winner known', {winner: winner, image: image});
+      socket.emit('switch image', image);
 ///////////// ************ HELP! ************ /////////////
-
-      alertWinner(winner);
+      alertWinner(winner, image);
       updateScore();
       switchImage(image);
       return "That is correct " + winner + "!";
@@ -48,7 +47,7 @@ function play(){
     }
   }
 
-  function alertWinner(winner) {
+  function alertWinner(winner, image) {
 
     $('#winner').text('AWESOME ' + winner + "! The answer is " + image + " :)");
     $('#winner').show();
@@ -80,27 +79,21 @@ function play(){
         showImage.replaceWith(first2+images[i]+last2);
         darkroom();
         $('#image').hide();
-        //emit new image to others
-        socket.emit('new image', newImage);
+        socket.emit('new image', 'trump');
         return newImage;
-        console.log(newImage);
       }
     }
   }
-  //function that executes to others to switch image
-  // function newImage(data) {
-  //   grabImage.replaceWith(data);
-  // }
 
-  // socket.on('new image', function (data) {
-  //   newImage(data);
-  //   console.log(data);
-  // })
+  socket.on('switch image', function (data) {
+    console.log(data);
+    switchImage(data);
+  });
 
   socket.on('winner known', function (data) {
     console.log(data);
-    // alertWinner(data);
-  })
+    alertWinner(data.winner, data.image);
+  });
 
 }
 
