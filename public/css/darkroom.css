@@ -24,6 +24,13 @@ footer {
   width: 100%;
   text-align: center;
 }
+#welcome {
+  font-weight: lighter;
+  position: absolute;
+  left: 4.8em;
+  top: 1.8em;
+  text-align: center;
+}
 /* END HEADER/ FOOTER */
 
 

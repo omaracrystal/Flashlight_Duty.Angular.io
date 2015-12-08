@@ -26,6 +26,7 @@ var socket = io();
   var typing = false;
   var lastTypingTime;
   var $currentInput = $usernameInput.focus();
+  var welcome = $('#welcome');
 
   //create an array of user names
   var usernames = [];
@@ -43,6 +44,7 @@ var socket = io();
   // Sets the client's username
   function setUsername () {
     username = cleanInput($usernameInput.val().trim());
+    welcome.text("Welcome "+ username +"!")
 
     // If the username is valid
     if (username) {

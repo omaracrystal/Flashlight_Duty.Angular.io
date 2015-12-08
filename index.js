@@ -4,6 +4,8 @@ var app = express();
 var server = require('http').createServer(app);
 var io = require('./lib/index')(server);
 var port = process.env.PORT || 3000;
+var favicon = require('serve-favicon');
+
 
 server.listen(port, function () {
   console.log('Server listening at port %d', port);
@@ -11,6 +13,9 @@ server.listen(port, function () {
 
 // Routing
 app.use(express.static(__dirname + '/public'));
+
+app.use(express.favicon(__dirname + '/public/images/favicon.ico'));
+
 
 // Chatroom
 
@@ -69,6 +74,12 @@ io.on('connection', function (socket) {
   socket.on('mouse move', function(data) {
     // console.log(data);
     socket.broadcast.emit('mouse move', data);
+  });
+
+  // when client emits 'nio mouse move', we broadcast it to others
+  socket.on('nio mouse move', function(data) {
+    // console.log(data);
+    socket.broadcast.emit('nio mouse move', data);
   });
 
 ///////////// ************ HELP! ************ /////////////

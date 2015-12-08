@@ -5,29 +5,23 @@
 <div id="playPage">
  <!-- HEADER AREA -->
 <header>FLASHLIGHT DUTY</header>
+<div><h2 id="welcome"></h2></div>
 
 <!-- CONNECT TO NIO -->
 <div><img id="nioImg" src="/./images/connect.png"></div>
 <div id='nioPopUp'>
   <div id="nioContent"><h1>Connect to n.io?</h1></div>
-  <button class='btn' id="nioYes" onClick="window.open('http://n.io/crystal/index.php');">Yes!</button>
+  <button class='btn' id='nioYes'>Yes!</button>
+<!--   <button class='btn' id="nioYes" onClick="window.open('http://n.io/crystal/index.php');">Yes!</button> -->
   <button class='btn' id="nioNah">Nah...</button>
   <button class='btn' id="nioHuh">Huh?</button>
 </div>
 <!-- END CONNECT TO NIO -->
 
 
-<!-- EXPERIMENTING WITH DRAG EVENTS
-<script>function dragIt(theEvent) {theEvent.dataTransfer.setData("Text", theEvent.target.id);}</script> -- >
-<!-- <div class="pics">
-  <div id="drag" ondrop="dropIt(event);" ondragover="event.preventDefault();">
-    <img src="/./images/avatar.png" width="80" height="80" draggable="true" ondragstart="dragIt(event);"/>
-  </div>
-</div> -->
-
  <nav>
   <ul class="nav inline-items">
-    <li>Score</li>
+    <li>Score: 0</li>
     <li><a class='border' href="#/">Home</a></li>
     <li><a class='border' href="#/profile">Profile</a></li>
  </ul>
@@ -38,7 +32,7 @@
   <div class="leftColumn">
     <div class="container">
       <span><h3>CURRENT PERSON ON FLASHLIGHT DUTY:</h3></span>
-      <span id="onDuty">{{ USERNAME }}</span>
+      <span><h3 id="onDuty">CRYSTAL</h3></span>
       <p><a class='border' href="#">Switch off Duty</a></p>
 
 
