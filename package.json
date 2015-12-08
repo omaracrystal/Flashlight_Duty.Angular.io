@@ -12,9 +12,10 @@
     "socket",
     "io"
   ],
-  "main": "index",
+  "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter dot --slow 200ms --bail"
+    "test": "mocha --reporter dot --slow 200ms --bail",
+    "start": "node ./index.js"
   },
   "dependencies": {
     "debug": "2.2.0",
