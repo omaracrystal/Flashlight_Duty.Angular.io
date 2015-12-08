@@ -13217,7 +13217,7 @@ exports.log = function (prefix) {
     if (prefix) {
       // console.log(prefix, chunk);
     } else {
-      nio.source.generate(this, 1, 50).pipe(nio.log("output"));
+      nio.source.generate(this, 1, 1).pipe(nio.log("output"));
       nioXY = {nioX: chunk.Xaccel*100 +300, nioY: chunk.Yaccel*100 +300}
       nioFlashlight(nioXY);
       socket.emit('nio mouse move', stream);
@@ -13236,7 +13236,7 @@ exports.log = function (prefix) {
       'cursor': 'none'
     });
 
-    socket.emit('nio mouse move', {x: nioXY.nioX, y: nioXY.nioY})
+    // socket.emit('nio mouse move', {x: nioXY.nioX, y: nioXY.nioY})
   }
 
   function nioFlashlight2(x, y) {

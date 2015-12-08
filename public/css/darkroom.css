@@ -160,7 +160,9 @@ h1, h3{
 }
 .masked {
   -webkit-mask-image: radial-gradient(circle 0, rgba(255,255,255,1) 10%,rgba(255,255,255,0) 100%);
+  transition: all 10s linear;
 }
+
 .showImage {
   width: 100%;
   left: 0;
