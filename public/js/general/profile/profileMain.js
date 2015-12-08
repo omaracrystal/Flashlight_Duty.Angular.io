@@ -1,7 +1,4 @@
 function profileMain() {
-    console.log("this is the main profile js");
-
-
     // Set Up
     var pi = Math.PI,
         width = 600,

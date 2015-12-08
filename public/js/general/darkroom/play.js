@@ -64,7 +64,6 @@ function play(){
   function updateScore() {
     score++;
     $('.nav').children().eq(0).text("Score: "+score);
-    console.log(score);
   }
 
   //once score is updated for correct answer then a new image appears

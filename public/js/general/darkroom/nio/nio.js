@@ -13215,17 +13215,18 @@ var nioXY;
 exports.log = function (prefix) {
   return exports.pass(function (chunk) {
     if (prefix) {
-      console.log(prefix, chunk);
+      // console.log(prefix, chunk);
     } else {
+      nio.source.generate(this, 1, 50).pipe(nio.log("output"));
       nioXY = {nioX: chunk.Xaccel*100 +300, nioY: chunk.Yaccel*100 +300}
-      nioFlashlight(this);
-      // socket.emit('nio mouse move', this);
+      nioFlashlight(nioXY);
+      socket.emit('nio mouse move', stream);
     }
   });
 }
 
 //update according to other's x and y
-  function nioFlashlight() {
+  function nioFlashlight(nioXY) {
     // nioXY = {nioX: chunk.Xaccel*100 +300, nioY: chunk.Yaccel*100 +300};
     var nioMouseX = nioXY.nioX - $('.masked').offset().left;
     console.log({x: nioXY.nioX, y: nioXY.nioY});
