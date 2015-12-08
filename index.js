@@ -22,18 +22,24 @@ app.use(express.favicon(__dirname + '/public/images/favicon.ico'));
 // usernames which are currently connected to the chat
 var usernames = {};
 var numUsers = 0;
-var winners = {};
 
-io.on('connection', function (socket) {
+io.on('connection', function (client) {
   var addedUser = false;
-  var checkWinner = false;
-  var switchImage = false;
+
+  socket.on('winner known', function (data) {
+    socket.broadcast.emit(data);
+  };
+
+  //  socket.on('new image', function (data) {
+  //   socket.broadcast.emit('new image', data);
+  //   console.log(data);
+  // });
 
   // when the client emits 'new message', this listens and executes
   socket.on('new message', function (data) {
     // we tell the client to execute 'new message'
     socket.broadcast.emit('new message', {
-      username: socket.username,
+      username: client.username,
       message: data
     });
   });
@@ -41,7 +47,7 @@ io.on('connection', function (socket) {
   // when the client emits 'add user', this listens and executes
   socket.on('add user', function (username) {
     // we store the username in the socket session for this client
-    socket.username = username;
+    client.username = username;
     // add the client's username to the global list
     usernames[username] = username;
     ++numUsers;
@@ -51,7 +57,7 @@ io.on('connection', function (socket) {
     });
     // echo globally (all clients) that a person has connected
     socket.broadcast.emit('user joined', {
-      username: socket.username,
+      username: client.username,
       numUsers: numUsers
     });
   });
@@ -59,14 +65,14 @@ io.on('connection', function (socket) {
   // when the client emits 'typing', we broadcast it to others
   socket.on('typing', function () {
     socket.broadcast.emit('typing', {
-      username: socket.username
+      username: client.username
     });
   });
 
   // when the client emits 'stop typing', we broadcast it to others
   socket.on('stop typing', function () {
     socket.broadcast.emit('stop typing', {
-      username: socket.username
+      username: client.username
     });
   });
 
@@ -103,12 +109,12 @@ io.on('connection', function (socket) {
   socket.on('disconnect', function () {
     // remove the username from global usernames list
     if (addedUser) {
-      delete usernames[socket.username];
+      delete usernames[client.username];
       --numUsers;
 
       // echo globally that this client has left
       socket.broadcast.emit('user left', {
-        username: socket.username,
+        username: client.username,
         numUsers: numUsers
       });
     }

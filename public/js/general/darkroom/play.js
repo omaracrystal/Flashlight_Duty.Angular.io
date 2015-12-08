@@ -33,11 +33,9 @@ function play(){
 
     if (image === guess) {
       winner = username;
-
 ///////////// ************ HELP! ************ /////////////
       //emit winner and image
-      // socket.emit('winner known', winner);
-      // socket.emit('image known', image);
+      socket.emit('winner known', winner);
       // socket.emit('check winner');
 ///////////// ************ HELP! ************ /////////////
 
@@ -83,10 +81,26 @@ function play(){
         darkroom();
         $('#image').hide();
         //emit new image to others
+        socket.emit('new image', newImage);
         return newImage;
+        console.log(newImage);
       }
     }
   }
+  //function that executes to others to switch image
+  // function newImage(data) {
+  //   grabImage.replaceWith(data);
+  // }
+
+  // socket.on('new image', function (data) {
+  //   newImage(data);
+  //   console.log(data);
+  // })
+
+  socket.on('winner known', function (data) {
+    console.log(data);
+    // alertWinner(data);
+  })
 
 }
 
