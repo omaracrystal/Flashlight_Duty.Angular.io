@@ -20,6 +20,12 @@ app.config(function($routeProvider) {
         controller: 'profileController',
         access: {restricted: false}
       })
+  //practice page
+      // .when('/practice', {
+      //   templateUrl: '../partials/practice.html',
+      //   controller: 'practiceController',
+      //   access: {restricted: false}
+      // })
       .otherwise({
         redirectTo: '/',
         access: {restricted: false}

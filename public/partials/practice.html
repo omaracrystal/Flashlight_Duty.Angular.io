@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="/../css/chat.css">
+<link rel="stylesheet" href="/../css/darkroom.css">
+<link rel="stylesheet" href="/../css/practice.css">
+<!-- ********************* Practice Page ************************** -->
+<div id="pPage">
+ <!-- HEADER AREA -->
+<header class="pHeader">FLASHLIGHT DUTY</header>
+<div><h2 class="pWelcome"></h2></div>
+
+ <nav>
+  <ul class="pNav pUl inline-items">
+    <li id="pScore">Score: 0</li>
+    <li><a class='border' href="#/">Home</a></li>
+    <li><a class='border' href="#/darkroom">Play</a></li>
+ </ul>
+</nav>
+
+<!-- LEFT COLUMN DARKROOM -->
+<div class="pBodyWrapper">
+  <div class="pLeftColumn">
+    <div class="pContainer">
+      <span><h3>CURRENT PERSON ON FLASHLIGHT DUTY:</h3></span>
+      <span><h3>YOU!</h3></span>
+    </div>
+
+     <div class="pLabel" id="pWinner"></div>
+
+      <div class="pImageDiv">
+        <img class="pShowImage" src="/./images/darkroom/paris.png">
+
+        <img class="pMasked" id="pImage" src="/./images/darkroom/paris.png"/>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT BAR CHAT -->
+  <div class="pRightColumnChat">
+    <ul class="pPages pUl">
+       <!-- LOGIN PAGE -->
+        <li class="pLogin pPage">
+          <div class="pForm">
+            <h3 class="pTitle">What's your nickname?</h3>
+            <input class="pUsernameInput" type="text" maxlength="14" />
+          </div>
+        </li>
+      <!-- END LOGIN PAGE -->
+      <li class="pChat pPage">
+        <div class="pChatArea">
+          <ul class="pMessages"></ul>
+        </div>
+        <input class="pInputMessage" placeholder="type your guess here..."/>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="pFooter">
+  <p><a href="#">Contact Us</a> | <a href="https://github.com/omaracrystal/Capstone.Project.io" target="_blank">Source Code</a> | <a href="#">Privacy Policy</a></p>
+  <p>&copy;2015 Flashlight Duty</p>
+</footer>
+
+</div>
+<!-- ********************* End p Page ************************** -->

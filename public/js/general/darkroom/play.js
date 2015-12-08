@@ -4,6 +4,7 @@ function play(){
   var socket = io();
 
   $('#winner').hide();
+
   $('.showImage').hide();
 
   var winner, lastMessage, username, guess, srcArr, src, image;
@@ -50,6 +51,7 @@ function play(){
   }
 
   function alertWinner(winner) {
+
     $('#winner').text('AWESOME ' + winner + "! The answer is " + image + " :)");
     $('#winner').show();
     $('.showImage').show();
