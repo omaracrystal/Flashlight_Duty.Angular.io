@@ -52,7 +52,7 @@ function darkroom() {
   });
 
   function hello(phone) {
-    var g=  $.post("http://textbelt.com/text",
+    var g = $.post("http://textbelt.com/text",
     {
       number: phone,
       message: "To connect to n.io please login at: n.io/crystal/mainapp.php"
