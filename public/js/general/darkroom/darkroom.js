@@ -2,43 +2,77 @@ function darkroom() {
 
   var socket = io();
 
-  var nioPopUp = $('#nioPopUp');
-  var nioImg = $('#nioImg');
-  var nioNah = $('#nioNah');
-  var nioYes = $('#nioYes');
-  var nioHuh = $('#nioHuh');
-  var nioCon = $('#nioContent');
-  var welcome = $('#welcome');
+  var response;
+  var $response = $('#response');
+  var $nioPopUp = $('#nioPopUp');
+  var $nioImg = $('#nioImg');
+  var $nioNah = $('#nioNah');
+  var $nioYes = $('#nioYes');
+  var $nioHuh = $('#nioHuh');
+  var $nioCon = $('#nioContent');
+  var $welcome = $('#welcome');
+  var $phoneInput = $('#phoneInput');
+  var $masked = $('.masked');
+  var $onDuty = $('#onDuty');
+  var $usernameInput = $('.usernameInput');
 
-  nioPopUp.hide();
 
-  nioImg.on('click', function() {
-    nioPopUp.show();
+////////// *** N.IO CONNECT *** //////////
+
+  $nioPopUp.hide();
+  $nioCon.hide();
+  $response.hide();
+
+  $nioImg.on('click', function() {
+    $nioPopUp.css('height', '250px');
+    $nioPopUp.show();
   });
 
-  nioNah.on('click', function() {
-    nioPopUp.hide();
+  $nioNah.on('click', function() {
+    $nioCon.hide();
+    $nioPopUp.hide();
+    $usernameInput.focus();
   });
 
-  nioYes.on('click', function() {
-    nioPopUp.hide();
-    var welcomeName = welcome.text().substring(8, welcome.text().length-1).toLowerCase();
-    var onDuty = $('#onDuty').text().toLowerCase();
+  $nioYes.on('click', function() {
+    var welcomeName = $welcome.text().substring(8, $welcome.text().length-1).toLowerCase();
+    var onDuty = $onDuty.text().toLowerCase();
     if (welcomeName === onDuty) {
-      window.nio2();
+      var phone = $phoneInput.val();
+      hello(phone);
+      $phoneInput.val("");
     } else {
       alert("Sorry! You have to be on Flashlight Duty in order to change to N.io");
     }
   });
 
-  nioHuh.on('click', function() {
-    nioCon.replaceWith("<h1>Connect to n.io?</h1><h3>N.io allows you to connect your mobile device as a controller to this game.<br> Instead of using the mousepad to move your flashlight up, down, left or right over the image, you can use your phone's movement to do that same!</h3>");
-    $('.btn').css('margin-top', '10px');
-    nioPopUp.css('height', '380px');
+  $nioHuh.on('click', function() {
+    $nioCon.show();
+    $('.btn').css('margin-top', '0px');
+    $nioPopUp.css('height', '400px');
   });
 
+  function hello(phone) {
+    var g=  $.post("http://textbelt.com/text",
+    {
+      number: phone,
+      message: "To connect to n.io please login at: n.io/crystal/mainapp.php"
+    }
+    ).done(function (){
+      response = JSON.parse(g.responseText);
+      console.log(response);
+      $response.replaceWith(response.message);
+      $response.show();
+      $response.css('font-color','red');
+      $phoneInput.css('margin-top','20px');
+    });
+  }
+
+
+  ////////// *** WELCOME TO THE DARK SIDE *** //////////
+
   function flashlightOff() {
-    $('.masked').css({
+    $masked.css({
         '-webkit-mask-image': ''
       });
   }
@@ -46,9 +80,9 @@ function darkroom() {
 
 //update according to other's x and y
   function flashlight(e) {
-    var mouseX = e.pageX - $('.masked').offset().left;
-    var mouseY = e.pageY - $('.masked').offset().top;
-    $('.masked').css({
+    var mouseX = e.pageX - $masked.offset().left;
+    var mouseY = e.pageY - $masked.offset().top;
+    $masked.css({
       '-webkit-mask-image': 'radial-gradient(circle 40px at ' + mouseX + 'px ' + mouseY + 'px, rgba(255,255,255,1) 60%, rgba(255,255,255,0) 100%)',
       'cursor': 'none'
     });
@@ -60,7 +94,7 @@ function darkroom() {
     var mouseX = x;
     var mouseY = y;
     // console.log(x, y);
-    $('.masked').css({
+    $masked.css({
       '-webkit-mask-image': 'radial-gradient(circle 40px at ' + mouseX + 'px ' + mouseY + 'px, rgba(255,255,255,1) 60%, rgba(255,255,255,0) 100%)',
       'cursor': 'none'
     });
@@ -72,7 +106,7 @@ function darkroom() {
   });
 
 
-  $('.masked').on({
+  $masked.on({
     'mousemove': flashlight,
     'mouseleave': flashlightOff
   });

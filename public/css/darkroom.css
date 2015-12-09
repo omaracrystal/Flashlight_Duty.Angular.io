@@ -104,7 +104,6 @@ h1, h3{
 }
 #nioPopUp{
   text-align: center;
-  align-items: center;
   color: white;
   position: fixed;
   margin: auto;
@@ -121,8 +120,64 @@ h1, h3{
   border-right: 4px solid #1C1C2A;
   opacity: .96;
   z-index: 2;
+  overflow: hidden;
 }
+ /* PHONE INPUT */
+#phoneInput {
+    width: 90%;
+    height: 50px;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border-bottom: 1px solid #61baf2;
+    border-top: 4px solid #000000;
+    border-right: 4px solid #1C1C2A;
+    /*border: 1px solid #ccc;*/
+    margin-bottom: 20px;
+    font-size: 22px;
+    padding: 0 20px 0 50px;
+    outline: none;
+    text-align: center;
+}
+#phoneInput {
+    background: black url('/./images/connect.png') 20px no-repeat;
+    background-size: 30px 30px;
+}
+#phoneInput:focus {
+    background: #fff url('/./images/connect.png') 20px no-repeat;
+    background-size: 30px 30px;
+}
+#phoneInput:active, #phoneInput:focus {
+    border: 1px solid #fff;
+}
+.spaceRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 /* BUTTON WORLD */
+#nioNah {
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  margin-top: -9px;
+}
+#nioHuh {
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  margin-top: -9px;
+}
+#nioYes {
+  margin-top: 5px;
+}
+#nioContent {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+  padding-top: -5px;
+  font-size: 20px;
+}
 .btn {
   margin-top: 40px;
   width: 200px;

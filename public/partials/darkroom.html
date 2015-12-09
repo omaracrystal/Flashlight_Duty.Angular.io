@@ -10,10 +10,20 @@
 <!-- CONNECT TO NIO -->
 <div><img id="nioImg" src="/./images/connect.png"></div>
 <div id='nioPopUp'>
-  <div id="nioContent"><h1>Connect to n.io?</h1></div>
-  <button class='btn' id='nioYes'>Yes!</button>
-  <button class='btn' id="nioNah">Nah...</button>
-  <button class='btn' id="nioHuh">Huh?</button>
+
+  <div class="spaceRow">
+    <button class='btn' id="nioNah">X</button>
+    <h1>Connect to n.io?</h1>
+    <button class='btn' id="nioHuh">?</button>
+  </div>
+
+  <div id="nioContent">N.io allows you to connect your mobile device as a controller to this game.<br> Instead of using the mousepad to move your flashlight up, down, left or right over the image, you can use your phone's movement to do that same!</div>
+  <div id="response"></div>
+  <form>
+    <input type="text" class="form-control" placeholder="enter your phone number here" name="phone" id="phoneInput" required>
+    <button type="submit" class="btn btn-default" ng-disabled="disabled" id="nioYes">Yes!</button>
+  </form>
+
 </div>
 <!-- END CONNECT TO NIO -->
 
@@ -53,15 +63,15 @@
         <li class="login page">
           <div class="form">
             <h3 class="title">What's your nickname?</h3>
-            <input class="usernameInput" type="text" maxlength="14" />
+            <input class="chat usernameInput" type="text" maxlength="14" />
           </div>
         </li>
       <!-- END LOGIN PAGE -->
-      <li class="chat page">
+      <li class="chatInput page">
         <div class="chatArea">
           <ul class="messages"></ul>
         </div>
-        <input class="inputMessage" placeholder="type your guess here..."/>
+        <input class="chatInput inputMessage" placeholder="type your guess here..."/>
       </li>
     </ul>
   </div>
