@@ -5,7 +5,6 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var port = process.env.PORT || 3000;
 var favicon = require('serve-favicon');
-var textbelt = require('./textbelt.js');
 var text = require('textbelt');
 
 server.listen(port, function () {

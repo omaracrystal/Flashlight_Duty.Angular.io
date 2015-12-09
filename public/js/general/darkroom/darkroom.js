@@ -21,10 +21,10 @@ function darkroom() {
 
   $nioPopUp.hide();
   $nioCon.hide();
-  $response.hide();
 
   $nioImg.on('click', function() {
-    $nioPopUp.css('height', '250px');
+    $phoneInput.val("");
+    $nioPopUp.css('height', '280px');
     $nioPopUp.show();
   });
 
@@ -40,7 +40,6 @@ function darkroom() {
     if (welcomeName === onDuty) {
       var phone = $phoneInput.val();
       hello(phone);
-      $phoneInput.val("");
     } else {
       alert("Sorry! You have to be on Flashlight Duty in order to change to N.io");
     }
@@ -61,10 +60,14 @@ function darkroom() {
     ).done(function (){
       response = JSON.parse(g.responseText);
       console.log(response);
-      $response.replaceWith(response.message);
-      $response.show();
-      $response.css('font-color','red');
       $phoneInput.css('margin-top','20px');
+      $nioPopUp.css('height', '280');
+
+      if (response.success) {
+        $response.replaceWith("Text sent! Please follow the link to finishing connecting with n.io");
+      } else {
+      $response.replaceWith(response.message);
+      }
     });
   }
 
