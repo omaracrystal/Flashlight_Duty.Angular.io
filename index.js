@@ -28,13 +28,11 @@ io.on('connection', function (socket) {
 
   // when the client emits 'winner known', this listens and executes
   socket.on('winner known', function (data) {
-    console.log(data);
     socket.broadcast.emit('winner known', data);
   });
 
 // when the client emits 'switch image', this listens and executes
   socket.on('switch image', function (data) {
-    console.log(data);
     socket.broadcast.emit('switch image', data);
   });
 
@@ -81,13 +79,11 @@ io.on('connection', function (socket) {
 
   // when client emits 'mouse move', we broadcast it to others
   socket.on('mouse move', function(data) {
-    // console.log(data);
     socket.broadcast.emit('mouse move', data);
   });
 
   // when client emits 'nio mouse move', we broadcast it to others
   socket.on('nio mouse move', function(data) {
-    // console.log(data);
     socket.broadcast.emit('nio mouse move', data);
   });
 

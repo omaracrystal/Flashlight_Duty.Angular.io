@@ -1,22 +1,15 @@
-#1 Hook up N.io
-- set up controller
-- give ability to switch from mouse to n.io
+#1 N.io
+- fix lag time - only works at http not https - after being deployed / chatroom breaks at http but works at https
 - nio pop up is disrupted by correct answer in chat room
 
-#2 All see same image
-- Once correct answer is made, emit changed image across browsers... also alert winner in Chatroom for others to see.
-- update individual scores
+#2 Extra
+- create practice area
 
-#3 Deploy to Heroku
-
-#3 All see same hover areas of image
-- mouseover x and y cordinates are off when viewing... error with different computers on same portal
-
-#4 One flashlight duty at a time
+# Stretch Ideas
 - only have one user in control of flashlight in chatroom
-
-#5 Switch off Duty
-- once correct quess is made pop up to cover image appears(everyone sees) and selects a user in the chat room to had off the flashlight
-- pop up dissapears at this point
+- have the ability to switch off duty from flashlight
+- track data through mongoDB (login/logout/resister)
+- profile page
+- once nio is created - have a dice that can be rolled via mobile shakes... also have a version of the dice on the page
 
 

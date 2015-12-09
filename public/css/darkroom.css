@@ -221,6 +221,7 @@ h1, h3{
   left: 0;
 }
 #image {
+  margin-top: 20px;
   max-height: 700px;
   width: 100%;
   left: 0;

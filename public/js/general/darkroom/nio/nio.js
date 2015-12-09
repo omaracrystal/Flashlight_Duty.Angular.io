@@ -13229,7 +13229,6 @@ exports.log = function (prefix) {
   function nioFlashlight(nioXY) {
     // nioXY = {nioX: chunk.Xaccel*100 +300, nioY: chunk.Yaccel*100 +300};
     var nioMouseX = nioXY.nioX - $('.masked').offset().left;
-    console.log({x: nioXY.nioX, y: nioXY.nioY});
     var nioMouseY = nioXY.nioY - $('.masked').offset().top;
     $('.masked').css({
       '-webkit-mask-image': 'radial-gradient(circle 40px at ' + nioMouseX + 'px ' + nioMouseY + 'px, rgba(255,255,255,1) 60%, rgba(255,255,255,0) 100%)',

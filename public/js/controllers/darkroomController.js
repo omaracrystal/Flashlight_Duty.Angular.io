@@ -1,5 +1,4 @@
 app.controller('darkroomController', ['$scope', function ($scope) {
-  console.log('darkroom controller working');
 
   var socket = window.io();
 

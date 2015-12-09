@@ -36,13 +36,16 @@ function darkroom() {
 
   $nioYes.on('click', function() {
     var welcomeName = $welcome.text().substring(8, $welcome.text().length-1).toLowerCase();
-    var onDuty = $onDuty.text().toLowerCase();
-    if (welcomeName === onDuty) {
-      var phone = $phoneInput.val();
-      hello(phone);
-    } else {
-      alert("Sorry! You have to be on Flashlight Duty in order to change to N.io");
-    }
+    // var onDuty = $onDuty.text().toLowerCase();
+    var phone = $phoneInput.val();
+    hello(phone);
+
+    // if (welcomeName === onDuty) {
+    //   var phone = $phoneInput.val();
+    //   hello(phone);
+    // } else {
+    //   alert("Sorry! You have to be on Flashlight Duty in order to change to N.io");
+    // }
   });
 
   $nioHuh.on('click', function() {
@@ -59,7 +62,6 @@ function darkroom() {
     }
     ).done(function (){
       response = JSON.parse(g.responseText);
-      console.log(response);
       $phoneInput.css('margin-top','20px');
       $nioPopUp.css('height', '280');
 
