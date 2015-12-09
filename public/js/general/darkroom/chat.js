@@ -32,6 +32,7 @@ var socket = io();
   var usernames = [];
 
   $currentInput;
+  $inputMessage.hide();
 
   function addParticipantsMessage (data) {
     var message = '';
@@ -52,6 +53,7 @@ var socket = io();
     if (username) {
       $loginPage.fadeOut();
       $chatPage.show();
+      $inputMessage.show();
       $loginPage.off('click');
       $currentInput = $inputMessage.focus();
 
