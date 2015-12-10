@@ -35,7 +35,7 @@ function darkroom() {
   });
 
   $nioYes.on('click', function() {
-    var welcomeName = $welcome.text().substring(8, $welcome.text().length-1).toLowerCase();
+    // var welcomeName = $welcome.text().substring(8, $welcome.text().length-1).toLowerCase();
     // var onDuty = $onDuty.text().toLowerCase();
     var phone = $phoneInput.val();
     hello(phone);
@@ -55,12 +55,11 @@ function darkroom() {
   });
 
   function hello(phone) {
-    var g = $.post("https://textbelt.com/text",
-    {
-      number: phone,
+    console.log(phone);
+    var g = $.post("http://textbelt.com/text",
+    { number: phone,
       message: "To connect to n.io please login at: n.io/crystal/mainapp.php"
-    }
-    ).done(function (){
+    }).done(function (){
       response = JSON.parse(g.responseText);
       $phoneInput.css('margin-top','20px');
       $nioPopUp.css('height', '280');
@@ -68,7 +67,7 @@ function darkroom() {
       if (response.success) {
         $response.replaceWith("Text sent! Please follow the link to finishing connecting with n.io");
       } else {
-      $response.replaceWith(response.message);
+        $response.replaceWith(response.message);
       }
     });
   }

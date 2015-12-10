@@ -217,11 +217,12 @@ h1, h3{
 }
 
 .showImage {
+  margin-top: 25px;
   width: 100%;
   left: 0;
 }
 #image {
-  margin-top: 20px;
+  margin-top: 25px;
   max-height: 700px;
   width: 100%;
   left: 0;
