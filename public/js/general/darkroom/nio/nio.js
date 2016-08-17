@@ -13215,7 +13215,7 @@ var nioXY;
 exports.log = function (prefix) {
   return exports.pass(function (chunk) {
     if (prefix) {
-      // console.log(prefix, chunk);
+      console.log(prefix, chunk);
     } else {
       nio.source.generate(this, 1, 1).pipe(nio.log("output"));
       nioXY = {nioX: chunk.Xaccel*100 +300, nioY: chunk.Yaccel*100 +300}
